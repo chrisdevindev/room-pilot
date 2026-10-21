@@ -1,0 +1,23 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.cs]
+end_of_line = crlf
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_indent_block_contents = true
+csharp_indent_case_contents = true
+csharp_space_after_comma = true
+csharp_space_around_binary_operators = before_and_after
+dotnet_sort_system_directives_first = true
+
+[*.json]
+indent_size = 2

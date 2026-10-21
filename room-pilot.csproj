@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RoomPilot</RootNamespace>
+    <AssemblyName>room-pilot</AssemblyName>
+    <PlatformTarget>x64</PlatformTarget>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OutputPath>outputs\</OutputPath>
+    <IntermediateOutputPath>work\obj\</IntermediateOutputPath>
+    <ApplicationManifest>src\app.manifest</ApplicationManifest>
+    <ApplicationIcon Condition="Exists('work\app.ico')">work\app.ico</ApplicationIcon>
+    <StartupObject>RoomPilot.Program</StartupObject>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Microsoft.Web.WebView2.Core"><HintPath>work\webview2\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath></Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms"><HintPath>work\webview2\lib\net462\Microsoft.Web.WebView2.WinForms.dll</HintPath></Reference>
+    <Content Include="work\webview2\runtimes\win-x64\native\WebView2Loader.dll"><Link>WebView2Loader.dll</Link><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></Content>
+    <Compile Include="src\**\*.cs" />
+    <EmbeddedResource Include="src\Localization\*.json"><LogicalName>RoomPilot.Localization.%(Filename)%(Extension)</LogicalName></EmbeddedResource>
+    <None Include="src\app.manifest" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
